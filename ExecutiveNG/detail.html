@@ -1,0 +1,37 @@
+﻿<section>
+    <img id="bigImage" ng-src="{{'https://theunitedstates.io/images/congress/450x550/' + executive.id.bioguide + '.jpg'}}" />
+    <div id="detailsPane">
+        <!--<div class="rowHeader">ID:</div>
+        <div class="rowData">bioguide: {{executive.id.bioguide}}</div>
+        <div class="rowData">govtrack: {{executive.id.govtrack}}</div>
+        <div class="rowData">icpsr_prez: {{executive.id.icpsr_prez}}</div>
+        <div class="rowData">icpsr: {{executive.id.icpsr}}</div>
+        <div class="rowData">thomas: {{executive.id.thomas}}</div>
+        <div class="rowData">lis: {{executive.id.lis}}</div>
+        <div class="rowData">opensecrets: {{executive.id.opensecrets}}</div>
+        <div class="rowData">votesmart: {{executive.id.votesmart}}</div>
+        <div class="rowData">fec: {{executive.id.fec}}</div>-->
+
+        <div class="rowHeader">Name:</div>
+        <div class="rowData">first: {{executive.name.first}}</div>
+        <div class="rowData">last: {{executive.name.last}}</div>
+        <div class="rowData">suffix: {{executive.name.suffix}}</div>
+        <div class="rowData">middle: {{executive.name.middle}}</div>
+        <div class="rowData">nickname: {{executive.name.nickname}}</div>
+
+        <div class="rowHeader">Bio:</div>
+        <div class="rowData">birthday: {{executive.bio.birthday | date:'medium'}}</div>
+        <div class="rowData">gender: {{executive.bio.gender}}</div>
+        <div class="rowData">religion: {{executive.bio.religion}}</div>
+
+        <div class="rowHeader">Terms:</div>
+        <div ng-repeat="term in executive.terms">
+            <div class="rowData">type: {{term.type}}</div>
+            <div class="rowData">start: {{term.start}}</div>
+            <div class="rowData">end: {{term.end}}</div>
+            <div class="rowData">party: {{term.party}}</div>
+            <div class="rowData">how: {{term.how}}</div>
+        </div>
+
+    </div>
+</section>
