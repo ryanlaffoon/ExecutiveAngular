@@ -7,17 +7,15 @@ executivesControllers.controller('executivesListController', ['$scope', '$http',
         angular.forEach(executives, function (executive) {
             executives.push(executive);
 
-            if (localStorage) {
-                var savedInfo = localStorage.getItem(executive.id);
-                if (savedInfo !== null) {
-                    executive.textEn = savedInfo;
-                }
-            }
+            //if (localStorage) {
+            //    var savedInfo = localStorage.getItem(executive.id);
+            //    if (savedInfo !== null) {
+            //        executive.textEn = savedInfo;
+            //    }
+            //}
         });
         $scope.executives = executives;
     });
-
-    $scope.executivesCount = 76;
 }]);
 
 executivesControllers.controller('executiveDetailController', function ($scope, $routeParams) {
@@ -29,11 +27,11 @@ executivesControllers.controller('executiveDetailController', function ($scope, 
         }
     }
 
-    $scope.update = function () {
-        if (!localStorage) {
-            return;
-        }
+    //$scope.update = function () {
+    //    if (!localStorage) {
+    //        return;
+    //    }
 
-        localStorage.setItem($scope.executive.id, $scope.executive.textEn);
-    };
+    //    localStorage.setItem($scope.executive.id, $scope.executive.textEn);
+    //};
 });
