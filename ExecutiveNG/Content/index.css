@@ -154,3 +154,7 @@ img.small {
         -moz-transform: scaleX(0);
         opacity: 0;
     }
+
+    .clear{
+        clear:both;
+    }

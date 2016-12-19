@@ -18,25 +18,17 @@ mainApp.config([
     }
 ]);
 
-mainApp.filter('filterAndReduce', function () {
-    return function (executives, count, query) {
-        if (!query) {
-            return executives.slice(0, count);
-        }
-
-        var filtered = [];
-
-        query = query.toLowerCase();
-
-        angular.forEach(executives, function (executive) {
-          
-
-            if (executive.name.last.toLowerCase().indexOf(query) !== -1)  {
-                filtered.push(executive);
-            }else if (executive.name.first.toLowerCase().indexOf(query) !== -1){
-                filtered.push(executive);
+mainApp.filter('searchFilter', function () {
+    return function (input, search) {
+        var result = [];
+        if (!search) return input;
+        var expected = ('' + search).toLowerCase();
+        angular.forEach(input, function (executive) {
+            var actual = ('' + executive.name.first + executive.name.last).toLowerCase();
+            if (actual.indexOf(expected) !== -1) {
+                result.push(executive);
             }
         });
-        return filtered.slice(0, count);
+        return result;
     };
 });

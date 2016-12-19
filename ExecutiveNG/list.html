@@ -1,20 +1,14 @@
 ﻿<header>
-    <div class="text">EXEC Browser</div>
+    <div class="text">Executives Browser</div>
 </header>
 <form class="filter" name="filterForm">
-    Filter: <input ng-model="query"> 
-    - Max count: <input type="number" name="executivesCount" ng-model="executivesCount" min="0" max="500">
-    <span class="error" ng-show="filterForm.executivesCount.$error.required">
-        Required!
-    </span>
-    <span class="error" ng-show="filterForm.executivesCount.$error.number">
-        Not valid number!
-    </span>
+    Filter: <input ng-model="search">
 </form>
 <section>
-    <div id="executivesList">
-        <div ng-repeat="executive in executives | filterAndReduce:executivesCount:querym" class="executiveItem">
-            <a href="#/executives/{{executive.id.govtrack}}">{{executive.name.first + " " + executive.name.last}}</a>
+    <div id="pList">
+        <h1>Presidents</h1>
+        <div ng-repeat="executive in executives track by $index|searchFilter:search" class="executiveItem">
+            <a href="#/executives/{{executive.id.govtrack}}">{{$index + " " + executive.name.first + " " + executive.name.last}}</a>
         </div>
     </div>
 </section>
