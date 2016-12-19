@@ -20,33 +20,15 @@ mainApp.config([
 
 mainApp.filter('searchFilter', function () {
     return function (input, search) {
-        if (!input) return input;
-        if (!search) return input;
-
-        var expected = ('' + search).toLowerCase();
         var result = [];
-
-        angular.forEach(input, function (value) {
-            var actual = ('' + value.first).toLowerCase();
+        if (!search) return input;
+        var expected = ('' + search).toLowerCase();
+        angular.forEach(input, function (executive) {
+            var actual = ('' + executive.name.first + executive.name.last).toLowerCase();
             if (actual.indexOf(expected) !== -1) {
-                result.push(value);
+                result.push(executive);
             }
         });
         return result;
-
-        //var filtered = [];
-
-        //search = search.toLowerCase();
-
-        //angular.forEach(input, function (executive) {
-          
-
-        //    if (executive.name.last.toLowerCase().indexOf(search) !== -1)  {
-        //        filtered.push(executive);
-        //    }else if (executive.name.first.toLowerCase().indexOf(search) !== -1){
-        //        filtered.push(executive);
-        //    }
-        //});
-        //return filtered.slice(0, count);
     };
 });

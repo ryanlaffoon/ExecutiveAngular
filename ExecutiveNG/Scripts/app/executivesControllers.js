@@ -1,10 +1,13 @@
 ﻿var executivesControllers = angular.module('executivesControllers', []);
 
-executivesControllers.controller('executivesListController', ['$scope', '$http', 'Executives', function ($scope, $http, Executives) {
+executivesControllers.controller('executivesListController', ['$scope', '$filter', '$http', 'Executives', function ($scope, $filter, $http, Executives) {
     var executives = [];
 
     Executives.query(function (executives) {
         angular.forEach(executives, function (executive) {
+
+
+
             executives.push(executive);
 
             //if (localStorage) {
@@ -15,6 +18,25 @@ executivesControllers.controller('executivesListController', ['$scope', '$http',
             //}
         });
         $scope.executives = executives;
+
+        $scope.presidents = $filter('filter')($scope.executives, { terms: { type: 'prez' } }, true);
+
+        $scope.vicepresidents = $filter('filter')($scope.executives, { terms: { type: 'viceprez' } }, true);
+
+        mainApp.filter('searchFilter', function () {
+            return function (input, search) {
+                var result = [];
+                if (!search) return input;
+                var expected = ('' + search).toLowerCase();
+                angular.forEach(input, function (executive) {
+                    var actual = ('' + executive.name.first + executive.name.last).toLowerCase();
+                    if (actual.indexOf(expected) !== -1) {
+                        result.push(executive);
+                    }
+                });
+                return result;
+            };
+        });
     });
 }]);
 
