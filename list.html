@@ -6,13 +6,17 @@
 </form>
 <section>
     <div id="pList">
-        <h1>Presidents</h1>
-        <div ng-repeat="president in presidents track by $index|searchFilter:search" class="executiveItem">
-            <a href="#/executives/{{president.id.govtrack}}">{{$index + " " + president.name.first + " " + president.name.last}}</a>
-        </div>
-		<h1>Vice Presidents</h1>
-        <div ng-repeat="vicepresident in vicepresidents track by $index|searchFilter:search" class="executiveItem">
-            <a href="#/executives/{{vicepresident.id.govtrack}}">{{$index + " " + vicepresident.name.first + " " + vicepresident.name.last}}</a>
-        </div>
+		<div class="clear">
+			<h1>Presidents</h1>
+			<div ng-repeat="president in presidents track by $index|searchFilter:search" class="executiveItem">
+				<a href="#/executives/{{president.id.govtrack}}">{{$index + " " + president.name.first + " " + president.name.last}}</a>
+			</div>
+		</div>
+		<div class="clear">
+			<h1>Vice Presidents</h1>
+			<div ng-repeat="vicepresident in vicepresidents track by $index|searchFilter:search" class="executiveItem">
+				<a href="#/executives/{{vicepresident.id.govtrack}}">{{$index + " " + vicepresident.name.first + " " + vicepresident.name.last}}</a>
+			</div>
+		</div>
     </div>
 </section>
