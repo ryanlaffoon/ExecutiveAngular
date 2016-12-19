@@ -5,17 +5,7 @@ executivesControllers.controller('executivesListController', ['$scope', '$filter
 
     Executives.query(function (executives) {
         angular.forEach(executives, function (executive) {
-
-
-
             executives.push(executive);
-
-            //if (localStorage) {
-            //    var savedInfo = localStorage.getItem(executive.id);
-            //    if (savedInfo !== null) {
-            //        executive.textEn = savedInfo;
-            //    }
-            //}
         });
         $scope.executives = executives;
 
@@ -48,12 +38,4 @@ executivesControllers.controller('executiveDetailController', function ($scope, 
             break;
         }
     }
-
-    //$scope.update = function () {
-    //    if (!localStorage) {
-    //        return;
-    //    }
-
-    //    localStorage.setItem($scope.executive.id, $scope.executive.textEn);
-    //};
 });
