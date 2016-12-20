@@ -8,18 +8,18 @@
     <div id="pList">
 		<div class="clear">
 			<h1>Presidents</h1>
-			<div ng-repeat="president in presidents track by $index|searchFilter:search" class="executiveItem">
+			<div ng-repeat="president in presidents track by $index|filter:search" class="executiveItem">
 				<a href="#/executives/{{president.id.govtrack}}">{{ president.name.first + " " + president.name.last }}</a>
-				<div ng-repeat="term in president.terms">
+				<span ng-repeat="term in president.terms | filter: {'type' : 'prez'}">
 					{{ term.start + " - " + term.end }}
-				</div>
+				</span>
 			</div>
 		</div>
 		<div class="clear">
 			<h1>Vice Presidents</h1>
-			<div ng-repeat="vicepresident in vicepresidents track by $index|searchFilter:search" class="executiveItem">
+			<div ng-repeat="vicepresident in vicepresidents track by $index|filter:search" class="executiveItem">
 				<a href="#/executives/{{vicepresident.id.govtrack}}">{{ vicepresident.name.first + " " + vicepresident.name.last }}</a>
-				<div ng-repeat="term in vicepresident.terms">
+				<div ng-repeat="term in vicepresident.terms | filter: {'type' : 'viceprez'}">
 					{{ term.start + " - " + term.end }}
 				</div>
 			</div>

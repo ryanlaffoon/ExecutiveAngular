@@ -108,9 +108,9 @@ img.small {
     float: left;
     margin: 5px;
     padding: 5px;
-
+    height: 100px;
+    width: 250px;
     background-color: #EEE;
-
 }
 
 .executiveItem.ng-enter,
