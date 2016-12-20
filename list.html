@@ -10,9 +10,9 @@
 			<h1>Presidents</h1>
 			<div ng-repeat="president in presidents track by $index | searchFilter:search" class="executiveItem">
 				<a href="#/executives/{{president.id.govtrack}}">{{ president.name.first + " " + president.name.last }}</a>
-				<span ng-repeat="term in president.terms | filter: {'type' : 'prez'}">
+				<div ng-repeat="term in president.terms | filter: {'type' : 'prez'}">
 					{{ term.start + " - " + term.end }}
-				</span>
+				</div>
 			</div>
 		</div>
 		<div class="clear">
