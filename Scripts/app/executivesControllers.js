@@ -4,9 +4,9 @@ executivesControllers.controller('executivesListController', ['$scope', '$filter
     var executives = [];
 
     Executives.query(function (executives) {
-        angular.forEach(executives, function (executive) {
+        /*angular.forEach(executives, function (executive) {
             executives.push(executive);
-        });
+        });*/
         $scope.executives = executives;
 
         $scope.presidents = $filter('filter')($scope.executives, { terms: { type: 'prez' } }, true);
