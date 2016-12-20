@@ -13,7 +13,7 @@ executivesControllers.controller('executivesListController', ['$scope', '$filter
 
         $scope.vicepresidents = $filter('filter')($scope.executives, { terms: { type: 'viceprez' } }, true);
 
-        mainApp.filter('searchFilter', function () {
+        mainApp.filter('searchFilter', function (input, search) {
             return function (input, search) {
                 var result = [];
                 if (!search) return input;
