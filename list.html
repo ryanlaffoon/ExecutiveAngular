@@ -9,13 +9,19 @@
 		<div class="clear">
 			<h1>Presidents</h1>
 			<div ng-repeat="president in presidents track by $index|searchFilter:search" class="executiveItem">
-				<a href="#/executives/{{president.id.govtrack}}">{{$index + " " + president.name.first + " " + president.name.last}}</a>
+				<a href="#/executives/{{president.id.govtrack}}">{{ president.name.first + " " + president.name.last }}</a>
+				<div ng-repeat="term in president.terms">
+					{{ term.start + " - " + term.end }}
+				</div>
 			</div>
 		</div>
 		<div class="clear">
 			<h1>Vice Presidents</h1>
 			<div ng-repeat="vicepresident in vicepresidents track by $index|searchFilter:search" class="executiveItem">
-				<a href="#/executives/{{vicepresident.id.govtrack}}">{{$index + " " + vicepresident.name.first + " " + vicepresident.name.last}}</a>
+				<a href="#/executives/{{vicepresident.id.govtrack}}">{{ vicepresident.name.first + " " + vicepresident.name.last }}</a>
+				<div ng-repeat="term in vicepresident.terms">
+					{{ term.start + " - " + term.end }}
+				</div>
 			</div>
 		</div>
     </div>
