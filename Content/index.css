@@ -102,13 +102,17 @@ img.small {
     font-weight: bold;
 }
 
+.clear{
+	clear:both;
+}
+
 .executiveItem{
     border-radius: 10px;
     display: block;
     float: left;
     margin: 5px;
     padding: 5px;
-    height: 100px;
+    height: 110px;
     width: 250px;
     background-color: #EEE;
 }
@@ -116,44 +120,29 @@ img.small {
 .executiveItem.ng-enter,
 .executiveItem.ng-leave,
 .executiveItem.ng-move {
-    -webkit-transition: all 0.25s linear;
-    -moz-transition: all 0.25s linear;
     transition: all .25s linear;
-    -webkit-transform-origin: 50% 50%;
-    -moz-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
 
 .executiveItem.ng-enter,
 .executiveItem.ng-move {
     transform: scaleX(0);
-    -webkit-transform: scaleX(0);
-    -moz-transform: scaleX(0);
     opacity: 0;
 }
 
     .executiveItem.ng-move.ng-move-active,
     .executiveItem.ng-enter.ng-enter-active {
         transform: scaleX(1);
-        -webkit-transform: scaleX(1);
-        -moz-transform: scaleX(1);
         opacity: 1;
     }
 
 .executiveItem.ng-leave {
     transform: scaleX(1);
-    -webkit-transform: scaleX(1);
-    -moz-transform: scaleX(1);
     opacity: 1;
 }
 
     .executiveItem.ng-leave.ng-leave-active {
         transform: scaleX(0);
-        -webkit-transform: scaleX(0);
-        -moz-transform: scaleX(0);
         opacity: 0;
     }
 
-    .clear{
-        clear:both;
-    }

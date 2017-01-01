@@ -12,8 +12,8 @@ executivesControllers.controller('executivesListController', ['$scope', '$filter
         $scope.presidents = $filter('filter')($scope.executives, { terms: { type: 'prez' } }, true);
 
         $scope.vicepresidents = $filter('filter')($scope.executives, { terms: { type: 'viceprez' } }, true);
-
-        mainApp.filter('searchFilter', function (input, search) {
+/*
+        mainApp.filter('searchFilter', function () {
             return function (input, search) {
                 var result = [];
                 if (!search) return input;
@@ -26,7 +26,8 @@ executivesControllers.controller('executivesListController', ['$scope', '$filter
                 });
                 return result;
             };
-        });
+        });*/
+		
     });
 }]);
 
