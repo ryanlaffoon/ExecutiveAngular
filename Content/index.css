@@ -50,8 +50,8 @@ img.small {
     display: block;
     border: none;
     float: left;
-    -webkit-transition: -webkit-transform 0.1s ease;
-    -moz-transition: -moz-transform 0.1s ease;
+    margin: auto;
+    vertical-align: middle;g
     transition: transform 0.1s ease;
 }
 
@@ -119,8 +119,7 @@ img.small {
 .executiveItem{
     border-radius: 10px;
     display: block;
-    /*float: left;*/
-    margin: 5px;
+    margin: 10px;
     padding: 10px;
     width: 45vw;
     height: 200px;

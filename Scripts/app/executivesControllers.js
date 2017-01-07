@@ -37,6 +37,7 @@ executivesControllers.controller('executivesListController', ['$scope', '$filter
                         party: term.party,
                         how: term.how
                     },
+                    image: "https://ryanlaffoon.github.io/executive-browser/img/" + executive.id.govtrack + ".jpg"
                 };
                 filtered.push(filteredItem);
             })

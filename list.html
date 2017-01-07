@@ -8,15 +8,15 @@
                 {{ term.president.term.start | date:"yyyy" }} - {{ term.president.term.end | date:"yyyy" }}
             </h3>
             <a href="#/executives/{{term.president.id.govtrack}}" class="executiveItem left">
-                <img ng-src="/img/{{ term.president.id.govtrack }}.jpg" class="small"/>
+                <img ng-src="{{ term.president.image }}" class="small" />
                 <span class="executiveBlurb">
-                    {{ term.president.name.first }} {{ term.president.name.last }}
+                    {{ term.president.name.first + " " + term.president.name.last }}
                 </span>
             </a>
-            <a href="#/executives/{{vp.id.govtrack}}" ng-repeat="vp in term.vicepresidents" class="executiveItem right">
-                <img ng-src="/img/{{ vp.id.govtrack }}.jpg" class="small"/>
+            <a href="#/executives/{{ vp.id.govtrack }}" ng-repeat="vp in term.vicepresidents" class="executiveItem right">
+                <img ng-src="{{ vp.image }}" class="small"/>
                 <span class="executiveBlurb">
-                {{ vp.name.first }} {{ vp.name.last }}
+                {{ vp.name.first + " " + vp.name.last }}
                 </span>
             </a>
             <a class="clear"></a>
