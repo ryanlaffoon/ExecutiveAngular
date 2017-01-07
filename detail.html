@@ -2,7 +2,7 @@
     <img id="bigImage" ng-src="{{ executive.image }}" />
     <div class="detailsPane">
         <a href="{{ site.baseurl }}">Back to Index</a>
-        
+
         <div class="detailPrimary">
             <span ng-show="executive.name.first">{{ executive.name.first }}</span>
             <span ng-show="executive.name.nickname"> "{{ executive.name.nickname }}"</span>
@@ -11,30 +11,33 @@
             <span ng-show="executive.name.suffix">, {{ executive.name.suffix }}</span>
         </div>
 
-        <div class="rowHeader">Bio:</div>
-        <div ng-show="executive.bio.birthday" class="rowData">Birthday: {{ executive.bio.birthday | date }}</div>
-        <div ng-show="executive.bio.gender" class="rowData">Gender: {{ executive.bio.gender }}</div>
-        <div ng-show="executive.bio.religion" class="rowData">Religion: {{ executive.bio.religion }}</div>
-
-        <div class="rowHeader">Terms:</div>
-        <div ng-repeat="term in executive.terms">
-            <span class="rowData">Served From {{ term.start | date }}</span>
-            <span class="rowData"> To {{ term.end | date }}</span>
-            <span class="rowData"> As {{ term.type | prez }}.</span>
-            <div class="rowData">Achieved through {{ term.how }}.</div>
-            <div class="rowData">Party: {{ term.party }}</div>
+        <div class="detailSecondary">
+            <div class="rowHeader">Bio:</div>
+            <div ng-show="executive.bio.birthday" class="rowData">Birthday: {{ executive.bio.birthday | date }}</div>
+            <div ng-show="executive.bio.gender" class="rowData">Gender: {{ executive.bio.gender }}</div>
+            <div ng-show="executive.bio.religion" class="rowData">Religion: {{ executive.bio.religion }}</div>
         </div>
-
-        <div class="rowHeader">ID:</div>
-        <div ng-show="executive.id.bioguide" class="rowData">bioguide: {{ executive.id.bioguide }}</div>
-        <div ng-show="executive.id.govtrack" class="rowData">govtrack: {{ executive.id.govtrack }}</div>
-        <div ng-show="executive.id.icpsr_prez" class="rowData">icpsr_prez: {{ executive.id.icpsr_prez }}</div>
-        <div ng-show="executive.id.icpsr" class="rowData">icpsr: {{ executive.id.icpsr }}</div>
-        <div ng-show="executive.id.thomas" class="rowData">thomas: {{ executive.id.thomas }}</div>
-        <div ng-show="executive.id.lis" class="rowData">lis: {{ executive.id.lis }}</div>
-        <div ng-show="executive.id.opensecrets" class="rowData">opensecrets: {{ executive.id.opensecrets }}</div>
-        <div ng-show="executive.id.votesmart" class="rowData">votesmart: {{ executive.id.votesmart }}</div>
-        <div ng-show="executive.id.fec" class="rowData">fec: {{ executive.id.fec }}</div>
-
+        <div class="detailSecondary">
+            <div class="rowHeader">Terms:</div>
+            <div ng-repeat="term in executive.terms" class="detailSecondary">
+                <span class="rowData">Served from {{ term.start | date }}</span>
+                <span class="rowData"> to {{ term.end | date }}</span>
+                <span class="rowData"> as {{ term.type | prez }}.</span>
+                <div class="rowData">Achieved through {{ term.how }}.</div>
+                <div class="rowData">Party: {{ term.party }}</div>
+            </div>
+        </div>
+        <div class="detailMinor">
+            <div class="rowHeader">ID:</div>
+            <div ng-show="executive.id.bioguide" class="rowData">bioguide: {{ executive.id.bioguide }}</div>
+            <div ng-show="executive.id.govtrack" class="rowData">govtrack: {{ executive.id.govtrack }}</div>
+            <div ng-show="executive.id.icpsr_prez" class="rowData">icpsr_prez: {{ executive.id.icpsr_prez }}</div>
+            <div ng-show="executive.id.icpsr" class="rowData">icpsr: {{ executive.id.icpsr }}</div>
+            <div ng-show="executive.id.thomas" class="rowData">thomas: {{ executive.id.thomas }}</div>
+            <div ng-show="executive.id.lis" class="rowData">lis: {{ executive.id.lis }}</div>
+            <div ng-show="executive.id.opensecrets" class="rowData">opensecrets: {{ executive.id.opensecrets }}</div>
+            <div ng-show="executive.id.votesmart" class="rowData">votesmart: {{ executive.id.votesmart }}</div>
+            <div ng-show="executive.id.fec" class="rowData">fec: {{ executive.id.fec }}</div>
+        </div>
     </div>
 </section>

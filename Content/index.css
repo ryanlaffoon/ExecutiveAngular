@@ -79,12 +79,16 @@ img.small {
 }
 
 .rowHeader {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
 }
 
-.rowData {
+.detailSecondary {
     font-size: 18px;
+}
+
+.detailMinor {
+    font-size: 12px;
 }
 
 .textEdit {
