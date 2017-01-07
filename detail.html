@@ -1,24 +1,16 @@
 ﻿<section>
-    <img id="bigImage" ng-src="{{'/img/' + executive.id.govtrack + '.jpg'}}" />
-    <div id="detailsPane">
-        <a href="/">Back to Index</a>
-        <!--<div class="rowHeader">ID:</div>
-        <div class="rowData">bioguide: {{executive.id.bioguide}}</div>
-        <div class="rowData">govtrack: {{executive.id.govtrack}}</div>
-        <div class="rowData">icpsr_prez: {{executive.id.icpsr_prez}}</div>
-        <div class="rowData">icpsr: {{executive.id.icpsr}}</div>
-        <div class="rowData">thomas: {{executive.id.thomas}}</div>
-        <div class="rowData">lis: {{executive.id.lis}}</div>
-        <div class="rowData">opensecrets: {{executive.id.opensecrets}}</div>
-        <div class="rowData">votesmart: {{executive.id.votesmart}}</div>
-        <div class="rowData">fec: {{executive.id.fec}}</div>-->
+    <img id="bigImage" ng-src="{{ executive.image }}" />
+    <div class="detailsPane">
+        <a href="{{ homeurl }}">Back to Index</a>
+        <span ng-show="executive.name.first">{{ executive.name.first }}</span>
+        <span ng-show="executive.name.nickname"> "{{executive.name.nickname}}"</span>
+        <span ng-show="executive.name.middle"> {{ executive.name.middle }}</span>
+        <span ng-show="executive.name.last"> {{ executive.name.last }}</span>
+        <span ng-show="executive.name.suffix">, {{ executive.name.suffix }}</span>
 
-        <div class="rowHeader">Name:</div>
-        <div class="rowData">first: {{executive.name.first}}</div>
-        <div class="rowData">last: {{executive.name.last}}</div>
-        <div class="rowData">suffix: {{executive.name.suffix}}</div>
-        <div class="rowData">middle: {{executive.name.middle}}</div>
-        <div class="rowData">nickname: {{executive.name.nickname}}</div>
+
+
+
 
         <div class="rowHeader">Bio:</div>
         <div class="rowData">birthday: {{executive.bio.birthday | date}}</div>
@@ -33,6 +25,17 @@
             <div class="rowData">party: {{term.party}}</div>
             <div class="rowData">how: {{term.how}}</div>
         </div>
+
+        <!--<div class="rowHeader">ID:</div>
+    <div class="rowData">bioguide: {{executive.id.bioguide}}</div>
+    <div class="rowData">govtrack: {{executive.id.govtrack}}</div>
+    <div class="rowData">icpsr_prez: {{executive.id.icpsr_prez}}</div>
+    <div class="rowData">icpsr: {{executive.id.icpsr}}</div>
+    <div class="rowData">thomas: {{executive.id.thomas}}</div>
+    <div class="rowData">lis: {{executive.id.lis}}</div>
+    <div class="rowData">opensecrets: {{executive.id.opensecrets}}</div>
+    <div class="rowData">votesmart: {{executive.id.votesmart}}</div>
+    <div class="rowData">fec: {{executive.id.fec}}</div>-->
 
     </div>
 </section>

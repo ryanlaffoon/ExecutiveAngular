@@ -1,44 +1,40 @@
 ﻿var executivesControllers = angular.module('executivesControllers', []);
 
-
-function FindVpsByTerm(prezTerm, vicePresidents) {
-    return (terms.term.end <= searchTerm.end);
-}
-
-
 executivesControllers.controller('executivesListController', ['$scope', '$filter', '$http', '$location', 'Executives', function ($scope, $filter, $http, $location, Executives) {
     var executives,
         filtered,
         presidents,
         vicepresidents,
         filteredTerms,
-        currTerm,
-        termNo;
+        homeurl;
 
-    termNo = 0;
     executives = [];
     filtered = [];
     filteredTerms = [];
 
     Executives.query(function (executives) {
         $scope.executives = executives;
-
+        homeurl = $location.path();
+        $scope.homeurl = homeurl;
         // Break-down by executive/term
         angular.forEach(executives, function (executive) {
+            executive.image = "/img/" + executive.id.govtrack + ".jpg";
+
+
             angular.forEach(executive.terms, function (term) {
                 var filteredItem = {
                     id: executive.id,
                     name: executive.name,
                     bio: executive.bio,
+                    image: executive.image,
                     term: {
                         type: term.type,
                         start: term.start,
                         end: term.end,
                         party: term.party,
                         how: term.how
-                    },
-                    image: "https://ryanlaffoon.github.io/executive-browser/img/" + executive.id.govtrack + ".jpg"
-                };
+                    }
+                    };
                 filtered.push(filteredItem);
             })
         });
