@@ -1,13 +1,15 @@
 ﻿<section>
     <img id="bigImage" ng-src="{{ executive.image }}" />
     <div class="detailsPane">
-        <a href="{{ homeurl }}">Back to Index</a>
-        <span ng-show="executive.name.first">{{ executive.name.first }}</span>
-        <span ng-show="executive.name.nickname"> "{{executive.name.nickname}}"</span>
-        <span ng-show="executive.name.middle"> {{ executive.name.middle }}</span>
-        <span ng-show="executive.name.last"> {{ executive.name.last }}</span>
-        <span ng-show="executive.name.suffix">, {{ executive.name.suffix }}</span>
-
+        <a href="../">Back to Index</a>
+        
+        <div>
+            <span ng-show="executive.name.first">{{ executive.name.first }}</span>
+            <span ng-show="executive.name.nickname"> "{{executive.name.nickname}}"</span>
+            <span ng-show="executive.name.middle"> {{ executive.name.middle }}</span>
+            <span ng-show="executive.name.last"> {{ executive.name.last }}</span>
+            <span ng-show="executive.name.suffix">, {{ executive.name.suffix }}</span>
+        </div>
 
 
 
