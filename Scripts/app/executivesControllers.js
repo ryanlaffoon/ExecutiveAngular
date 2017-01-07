@@ -18,7 +18,7 @@ executivesControllers.controller('executivesListController', ['$scope', '$filter
         $scope.homeurl = homeurl;
         // Break-down by executive/term
         angular.forEach(executives, function (executive) {
-            executive.image = "/img/" + executive.id.govtrack + ".jpg";
+            executive.image = "img/" + executive.id.govtrack + ".jpg";
 
 
             angular.forEach(executive.terms, function (term) {
