@@ -1,28 +1,25 @@
 ﻿<header>
-    <div class="text">Executives Browser</div>
+    <div class="text">Executive Browser</div>
 </header>
-<form class="filter" name="filterForm">
-    Filter: <input ng-model="search">
-</form>
 <section>
-    <div id="pList">
-		<div class="clear">
-			<h1>Presidents</h1>
-			<div ng-repeat="president in presidents track by $index | searchFilter:search" class="executiveItem">
-				<a href="#/executives/{{president.id.govtrack}}">{{ president.name.first + " " + president.name.last }}</a>
-				<div ng-repeat="term in president.terms | filter: {'type' : 'prez'} : true">
-					{{ term.start + " - " + term.end }}
-				</div>
-			</div>
-		</div>
-		<div class="clear">
-			<h1>Vice Presidents</h1>
-			<div ng-repeat="vicepresident in vicepresidents track by $index | searchFilter:search" class="executiveItem">
-				<a href="#/executives/{{vicepresident.id.govtrack}}">{{ vicepresident.name.first + " " + vicepresident.name.last }}</a>
-				<div ng-repeat="term in vicepresident.terms | filter: {'type' : 'viceprez'} : true">
-					{{ term.start + " - " + term.end }}
-				</div>
-			</div>
-		</div>
+    <div id="pList clear">
+        <div ng-repeat="term in terms">
+            <h3 class="termHeader">
+                {{ term.president.term.start | date:"yyyy" }} - {{ term.president.term.end | date:"yyyy" }}
+            </h3>
+            <a href="#/executives/{{term.president.id.govtrack}}" class="executiveItem left">
+                <img ng-src="/img/{{ term.president.id.govtrack }}.jpg" class="small"/>
+                <span class="executiveBlurb">
+                    {{ term.president.name.first }} {{ term.president.name.last }}
+                </span>
+            </a>
+            <a href="#/executives/{{vp.id.govtrack}}" ng-repeat="vp in term.vicepresidents" class="executiveItem right">
+                <img ng-src="/img/{{ vp.id.govtrack }}.jpg" class="small"/>
+                <span class="executiveBlurb">
+                {{ vp.name.first }} {{ vp.name.last }}
+                </span>
+            </a>
+            <a class="clear"></a>
+        </div>
     </div>
 </section>

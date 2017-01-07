@@ -1,33 +1,66 @@
 ﻿var executivesControllers = angular.module('executivesControllers', []);
 
-executivesControllers.controller('executivesListController', ['$scope', '$filter', '$http', 'Executives', function ($scope, $filter, $http, Executives) {
-    var executives = [];
+
+function FindVpsByTerm(prezTerm, vicePresidents) {
+    return (terms.term.end <= searchTerm.end);
+}
+
+
+executivesControllers.controller('executivesListController', ['$scope', '$filter', '$http', '$location', 'Executives', function ($scope, $filter, $http, $location, Executives) {
+    var executives,
+        filtered,
+        presidents,
+        vicepresidents,
+        filteredTerms,
+        currTerm,
+        termNo;
+
+    termNo = 0;
+    executives = [];
+    filtered = [];
+    filteredTerms = [];
 
     Executives.query(function (executives) {
-        /*angular.forEach(executives, function (executive) {
-            executives.push(executive);
-        });*/
         $scope.executives = executives;
 
-        $scope.presidents = $filter('filter')($scope.executives, { terms: { type: 'prez' } }, true);
+        // Break-down by executive/term
+        angular.forEach(executives, function (executive) {
+            angular.forEach(executive.terms, function (term) {
+                var filteredItem = {
+                    id: executive.id,
+                    name: executive.name,
+                    bio: executive.bio,
+                    term: {
+                        type: term.type,
+                        start: term.start,
+                        end: term.end,
+                        party: term.party,
+                        how: term.how
+                    },
+                };
+                filtered.push(filteredItem);
+            })
+        });
 
-        $scope.vicepresidents = $filter('filter')($scope.executives, { terms: { type: 'viceprez' } }, true);
-/*
-        mainApp.filter('searchFilter', function () {
-            return function (input, search) {
-                var result = [];
-                if (!search) return input;
-                var expected = ('' + search).toLowerCase();
-                angular.forEach(input, function (executive) {
-                    var actual = ('' + executive.name.first + executive.name.last).toLowerCase();
-                    if (actual.indexOf(expected) !== -1) {
-                        result.push(executive);
-                    }
-                });
-                return result;
-            };
-        });*/
-		
+       presidents = $filter('filter')(filtered, { term: { type: 'prez' } }, true);
+
+       vicepresidents = $filter('filter')(filtered, { term: { type: 'viceprez' } }, true);
+
+       angular.forEach(presidents, function (president) {
+           var filteredTerm = {
+               president: president,
+               vicepresidents: []
+           };
+           angular.forEach(vicepresidents, function (vp) {
+               if (vp.term.start >= president.term.start && vp.term.end <= president.term.end) {
+                   filteredTerm.vicepresidents.push(vp);
+               }
+           })
+           filteredTerms.push(filteredTerm);
+       });
+
+        $scope.terms = filteredTerms;
+
     });
 }]);
 
