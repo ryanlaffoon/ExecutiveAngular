@@ -74,6 +74,10 @@ img.small {
     left: 40%;
 }
 
+.detailPrimary{
+    font-size: 32px;
+}
+
 .rowHeader {
     font-size: 24px;
     font-weight: bold;

@@ -70,3 +70,4 @@ executivesControllers.controller('executiveDetailController', function ($scope, 
         }
     }
 });
+

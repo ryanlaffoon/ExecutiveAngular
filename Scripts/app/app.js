@@ -32,3 +32,15 @@ mainApp.filter('searchFilter', function () {
         return result;
     };
 });
+
+mainApp.filter('capitalize', function () {
+    return function (input) {
+        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+});
+
+mainApp.filter('prez', function () {
+    return function (input) {
+        return (!!input) ? input == 'prez' ? 'President' : 'Vice President' : '';
+    }
+});
